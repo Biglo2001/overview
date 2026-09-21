@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Overview</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      min-height: 300px;
+      padding: 70px 30px 40px;
+      border: 2px solid #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0 0 35px;
+      font-size: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      align-items: center;
+    }
+
+    .game-button {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      padding: 15px 20px;
+      color: #fff;
+      background: #000;
+      border: 2px solid #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .game-button:hover {
+      transform: scale(1.08);
+    }
+
+    .game-button:active {
+      background: #333;
+    }
+
+    #music-toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      color: #fff;
+      background: #000;
+      border: 2px solid #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    #music-toggle:hover {
+      background: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button id="music-toggle" aria-label="Toggle music">♫</button>
+
+    <h1>Overview</h1>
+
+    <div class="buttons">
+      <a class="game-button" href="https://biglo2001.github.io/card_rpg/game(2)_gpt.html">
+        RPG prototype
+      </a>
+
+      <a class="game-button" href="https://biglo2001.github.io/drummachine/main.html">
+        Drummachine
+      </a>
+    </div>
+
+    <audio id="background-music" loop>
+      <source src="main_music1.wav" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const musicToggle = document.getElementById("music-toggle");
+    const music = document.getElementById("background-music");
+
+    musicToggle.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        musicToggle.textContent = "♫";
+        musicToggle.setAttribute("aria-label", "Turn music off");
+      } else {
+        music.pause();
+        musicToggle.textContent = "🔇";
+        musicToggle.setAttribute("aria-label", "Turn music on");
+      }
+    });
+  </script>
+</body>
+</html>
